@@ -16,8 +16,7 @@ if __name__ == '__main__':
         X_data = X_data[:20000]
         y_data = y_data[:20000]
 
-    #
-    y = np.array(y_data).reshape((-1,1))
+    # y = np.array(y_data).reshape((-1,1))
 
     # 用词袋模型表示文本特征
     vectorizer1 = CountVectorizer()
@@ -27,8 +26,8 @@ if __name__ == '__main__':
     X_ngram = vectorizer2.fit_transform(X_data)
 
     # 划分训练集和测试集
-    X_train_bow, X_test_bow,y_train_bow,y_test_bow = train_test_split(X_bow,y,test_size=0.2,random_state=42,stratify=y)
-    X_train_ngram, X_test_ngram,y_train_ngram,y_test_ngram = train_test_split(X_ngram,y,test_size=0.2,random_state=42,stratify=y)
+    X_train_bow, X_test_bow,y_train_bow,y_test_bow = train_test_split(X_bow,y_data,test_size=0.2,random_state=42,stratify=y_data)
+    X_train_ngram, X_test_ngram,y_train_ngram,y_test_ngram = train_test_split(X_ngram,y_data,test_size=0.2,random_state=42,stratify=y_data)
 
     # softmax回归
     model1 = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
