@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -15,8 +14,6 @@ if __name__ == '__main__':
     if just_test == 1:
         X_data = X_data[:20000]
         y_data = y_data[:20000]
-
-    # y = np.array(y_data).reshape((-1,1))
 
     # 用词袋模型表示文本特征
     vectorizer1 = CountVectorizer()
